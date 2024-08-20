@@ -6,11 +6,12 @@ unsigned int cycle(unsigned int n) {
     unsigned int count = 1 ;
     while (n != 1){
         count++ ;
-        if (n % 2 == 0) {
-            n /= 2 ;
+        if (! (n & 1)) {  // n % 2 == 0 i.e. even
+            n >>= 1 ;     // n /= 2
         }
         else {
-            n = n * 3 + 1 ;
+            n *= 3 ;
+            n++ ;
         }
     }
     return count ;
@@ -22,7 +23,7 @@ int main() {
     while (cin >> x >> y) {
         cout << x << " " << y << " " ;
         if (x > y) {  // notice!
-            unsigned temp = x ;
+            unsigned int temp = x ;
             x = y ;
             y = temp ;
         }
