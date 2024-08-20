@@ -24,9 +24,13 @@ int main() {
         }
     }
 
-    sort(v.begin(), v.end()) ;
+    sort(v.begin(), v.end()) ;  
     for (int i = 0; i < v.size(); i++) {
         cout << v[i] << " " << dict[v[i]] << endl ;
     }
-    return 0 ;
+
+    // if we use (ordered) map-> no need to sort
+    // for (auto i = dict.begin(); i != dict.end(); i++) {
+    //     cout << i-> first << " " << i-> second << endl ;
+    // }
 }
