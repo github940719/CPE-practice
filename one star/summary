@@ -10,6 +10,8 @@ log2 10 ~ 3.3
 
 小數一律用 double !
 
+注意最後一行的 endl !
+
 值得複習的題目
 06. Bangla Numbers
 08. What's Cryptanalysis? -> 將 map 轉為 vector 以針對 value 排序
@@ -19,3 +21,4 @@ log2 10 ~ 3.3
 31. All You Need Is Love
 38. Can You Solve It -> 找規律
 40. A mid-summer night's dream -> 中位數
+48. Cola
