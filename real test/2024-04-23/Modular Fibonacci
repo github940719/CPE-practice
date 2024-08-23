@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int mod ;
+typedef long long int LL ;
+
+class Matrix {
+public:
+    LL a, b, c, d ;
+    Matrix(LL a, LL b, LL c, LL d) : a(a), b(b), c(c), d(d) {}
+    void operator*= (Matrix m) {
+        LL tempa = this-> a, tempb = this-> b, tempc = this-> c, tempd = this-> d ;
+        this-> a = (tempa * m.a + tempb * m.c) % mod ;
+        this-> b = (tempa * m.b + tempb * m.d) % mod ;
+        this-> c = (tempc * m.a + tempd * m.c) % mod ;
+        this-> d = (tempc * m.b + tempd * m.d) % mod ;
+    }
+} ;
+
+
+int main() {
+    int n, m ;
+    while (cin >> n >> m) {
+
+        mod = 1 ;
+        for (int i = 0; i < m; i++) {
+            mod *= 2 ;
+        }
+        
+        if (n == 0) {
+            cout << 0 << endl ;
+            continue ;
+        }
+        if (n == 1) {
+            cout << (1 % mod) << endl ;
+            continue ;
+        }
+
+        n-- ;
+        // matrix ^ n
+        Matrix ans(1, 0, 0, 1), base(1, 1, 1, 0) ;
+        while (n) {
+            if (n & 1) {
+                ans *= base ;
+            }
+            base *= base ;
+            n >>= 1 ;
+        }
+        cout << ans.a % mod << endl ;
+    }
+}
